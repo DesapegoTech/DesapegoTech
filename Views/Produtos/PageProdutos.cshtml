@@ -1,0 +1,331 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container da pesquisa */
+        #searchContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Espaçamento entre o campo de pesquisa e o botão */
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Campo de pesquisa */
+        #searchInput {
+            width: 50%; /* Define a largura do campo de pesquisa */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            color: #aaa;
+        }
+
+        /* Botão de pesquisa */
+        #pesquisa {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            #pesquisa:hover {
+                background-color: #555;
+            }
+
+        /* Responsividade para telas menores */
+        media (max-width: 600px) {
+            /* Quando a tela for menor que 600px, o layout do campo de pesquisa e o botão muda para coluna */
+            #searchInput, #pesquisa
+
+        {
+            width: 100%; /* Ambos ocupam 100% da largura */
+            margin-left: 0; /* Remove a margem à esquerda do campo de pesquisa */
+            margin-bottom: 10px; /* Espaço entre o campo de pesquisa e o botão */
+        }
+
+        /* Mantém os itens dentro do contêiner alinhados em coluna */
+        #searchContainer {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        }
+
+        /* Container dos produtos */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .category-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+            .category-card:hover {
+                transform: scale(1.05); /* Aumenta um pouco o tamanho do item ao passar o mouse */
+            }
+
+            .category-card .category-icon {
+                font-size: 40px;
+                color: #4CAF50;
+                margin-bottom: 15px;
+            }
+
+            .category-card .category-title {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .category-card .item-details {
+                font-size: 14px;
+                color: #555;
+            }
+
+            .category-card .price {
+                font-size: 18px;
+                font-weight: bold;
+                color: #000;
+                margin-bottom: 10px;
+            }
+
+            .category-card .description {
+                color: #777;
+                font-style: italic;
+            }
+
+        .ima {
+            width: 80px;
+        }
+
+        .ima1 {
+            width: 150px;
+        }
+
+        /* Detalhes do produto */
+        .product-details {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+            .product-details img {
+                max-width: 100%;
+                border-radius: 5px;
+            }
+
+        .product-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .quantity {
+            margin-top: 20px;
+        }
+
+        .btn-purchase {
+            margin-top: 30px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .btn-purchase:hover {
+                background-color: #0056b3;
+            }
+
+        #productImage {
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Barra de pesquisa -->
+    <div id="searchContainer">
+        <input type="text" id="searchInput" placeholder="Pesquisar produtos...">
+        <input id="pesquisa" type="button" value="Buscar" />
+    </div>
+
+    <!-- Container para os produtos -->
+    <div id="productContainer" class="product-container">
+        <div class="category-card" data-id="1">
+            <div class="category-icon"><img class="ima" src="~/css/samsung galaxy s23 5g.jpg" alt="Celular"></div>
+            <div class="item-details">
+                <h4 class="titulo">Celular</h4>
+                <div class="price">R$ 500,00</div>
+                <p class="description">Samsung 8 - 64GB, em bom estado</p>
+            </div>
+        </div>
+
+        <div class="category-card" data-id="2">
+            <div class="category-icon"><img class="ima" src="~/css/playstation 5.jpg" alt="Playstation 5"></div>
+            <div class="item-details">
+                <h4 class="titulo">Video Game</h4>
+                <div class="price">R$ 1.200,00</div>
+                <div class="description">PlayStation 5, completo com dois controles</div>
+            </div>
+        </div>
+
+        <div class="category-card" data-id="3">
+            <div class="category-icon"><img class="ima" src="~/css/tv de 65.jpg" alt="tv"></div>
+            <div class="item-details">
+                <h4 class="titulo">Tv</h4>
+                <div class="price">R$ 800,00</div>
+                <div class="description">Smart TV Samsung 40 polegadas</div>
+            </div>
+        </div>
+
+        <div class="category-card" data-id="4">
+            <div class="category-icon"><img class="ima" src="~/css/computador.jpg"></img></div>
+            <div class="item-details">
+                <h4 class="titulo">Computador</h4>
+                <div class="price">R$ 1.500,00</div>
+                <div class="description">Notebook Dell i5 - 8GB RAM, 256GB SSD</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detalhes do produto - Inicialmente oculto -->
+    <div id="productDetails" class="product-details" style="display: none;">
+        <img id="productImage" src="img/" alt="Produto">
+        <div class="product-info">
+            <div id="productTitle" class="product-title"></div>
+            <div id="productPrice" class="price"></div>
+            <div id="productDescription" class="description"></div>
+            <div id="productDescription1" class="description1"></div>
+        </div>
+        <button id="btnBack" class="btn-purchase" style="background-color: #6c757d; margin-bottom: 20px;">Voltar</button>
+    </div>
+
+    <script>
+        // Detalhes do produto
+        const productDetails = {
+            1: {
+                title: 'Celular',
+                price: 'R$ 500,00',
+                description: 'iPhone 8 - 64GB, Em bom estado e unico dono. Entre em contato em caso de interesse ao email techub571@gmail.com. Assunto acrescentar nome e link do produto.',
+
+                image: "/css/samsung galaxy s23 5g.jpg",
+            },
+            2: {
+                title: 'Playstation 5',
+                price: 'R$ 1.200,00',
+                description: 'PlayStation 5. Em ótimo estado e completo com dois controles.Entre em contato em caso de interesse ao email techub571@gmail.com. Assunto acrescentar nome e link do produto',
+                image: "/css/playstation 5.jpg",
+            },
+            3: {
+                title: 'Tv',
+                price: 'R$ 800,00',
+                description: 'Smart TV Samsung 40 polegadas.Entre em contato em caso de interesse ao email techub571@gmail.com. Assunto acrescentar nome e link do produto',
+                image: "/css/tv de 65.jpg",
+            },
+            4: {
+                title: 'Computador',
+                price: 'R$ 1.500,00',
+                description: 'Notebook Dell i5 - 8GB RAM, 256GB SSD.Entre em contato em caso de interesse ao email techub571@gmail.com. Assunto acrescentar nome e link do produto',
+                image: "/css/computador.jpg",
+            }
+        };
+
+        // Exibe os detalhes do produto
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const productId = card.getAttribute('data-id');
+                const product = productDetails[productId];
+
+                document.getElementById('productTitle').textContent = product.title;
+                document.getElementById('productPrice').textContent = product.price;
+                document.getElementById('productDescription').textContent = product.description;
+                document.getElementById('productImage').src = product.image;
+
+                document.getElementById('productContainer').style.display = 'none';
+                document.getElementById('productDetails').style.display = 'block';
+            });
+        });
+
+        // Voltar para a lista de produtos
+        document.getElementById('btnBack').addEventListener('click', () => {
+            document.getElementById('productContainer').style.display = 'flex';
+            document.getElementById('productDetails').style.display = 'none';
+        });
+
+        // Função de pesquisa
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase(); // Obtém o valor da pesquisa
+            const cards = document.querySelectorAll('.category-card'); // Obtém todos os cards de produto
+
+            // Filtra os produtos com base no texto de pesquisa
+            cards.forEach(card => {
+                const title = card.querySelector('.titulo').textContent.toLowerCase(); // Obtém o nome do produto
+                if (title.includes(searchQuery)) {
+                    card.style.display = ''; // Exibe o produto se corresponder à pesquisa
+                } else {
+                    card.style.display = 'none'; // Oculta o produto se não corresponder à pesquisa
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+

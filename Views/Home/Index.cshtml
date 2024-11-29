@@ -1,0 +1,275 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing Page Moderna</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero .cta-button {
+            font-size: 18px;
+            padding: 12px 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .features .feature-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .features .feature {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 40px;
+            width: 280px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .features .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .features .feature h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .features .feature p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials {
+            background-color: #f8f8f8;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .testimonials .testimonial-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .testimonials .testimonial {
+            background-color: #fff;
+            padding: 30px;
+            width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonials .testimonial:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonials .testimonial p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .testimonials .testimonial .author {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* --- Call to Action --- */
+        .cta-section {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Mobile Responsiveness --- */
+         media(max-width: 768px) {
+            .features .feature-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features .feature {
+                margin-bottom: 30px;
+            }
+
+            .testimonials .testimonial-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transforme sua experiência em uma grande possibilidade ao próximo.</h1>
+        <p>transforme seu produto em algo reciclável, ajude ao poróximo possibilitando que a tecnologia chegue ao próximo.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Principais Funcionalidades</h2>
+        <div class="feature-container">
+            <div class="feature">
+                <h3>Rápido e Eficiente</h3>
+                <p>Anuncie o seu produto conosco e conheça a praticidade e eficiencia no direcionamento de seu produto.</p>
+            </div>
+            <div class="feature">
+                <h3>Fácil de Usar</h3>
+                <p>Com uma interface amigável, você pode começar anuciar conosco em apenas um clique.</p>
+            </div>
+            <div class="feature">
+                <h3>Suporte 24/7</h3>
+                <p>Nosso time de suporte está sempre disponível para ajudá-lo com qualquer dúvida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <p>"Com o site Desapego TECH,pude realizar meu sonho de obter meu primeiro smartphone "</p>
+                <p class="author">- João Silva</p>
+            </div>
+            <div class="testimonial">
+                <p>"O Desapego TECH, me proporcionou a emoção de poder ajudar o próximo doando meu antigo computador que estava parado"</p>
+                <p class="author">- Maria Oliveira</p>
+            </div>
+            <div class="testimonial">
+                <p>"Melhor ferramenta para doação e anuncio de produtos sobre tecnologia da informação! O suporte também é incrível, anunciei meu primeiro produto e vendi em instantes."</p>
+                <p class="author">- Carlos Souza</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h2>Pronto para transformar a sua experiência?</h2>
+       
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy;Desapego TECH 2024 Sua Empresa | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+    </footer>
+
+    <script>
+        // Exemplo simples de JavaScript para efeito de scroll suave no botão
+        document.querySelector('.cta-button').addEventListener('click', function () {
+            alert("Você clicou no botão. Ação futura pode ser implementada aqui.");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
